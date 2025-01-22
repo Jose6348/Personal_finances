@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import App from '../App.vue'
 import TransactionList from '../components/TransactionList.vue'
 import AppGoals from '../components/AppGoals.vue'
 import FinancialSummary from '../components/FinancialSummary.vue'
+import AppHome from '@/components/AppHome.vue'
 
 const routes = [
-  { path: '/', component: App },
+  { path: '/', component: AppHome },
   { path: '/transactions', component: TransactionList },
   { path: '/goals', component: AppGoals },
   { path: '/summary', component: FinancialSummary }
