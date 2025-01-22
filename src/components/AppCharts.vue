@@ -1,7 +1,9 @@
 <template>
-    <div>
-      <h2>Visão Geral Financeira</h2>
-      <bar-chart :chartData="chartData" :options="chartOptions" />
+    <div class="app-charts-container">
+      <h2 class="chart-title">Visão Geral Financeira</h2>
+      <div class="chart-wrapper">
+        <bar-chart :chartData="chartData" :options="chartOptions" />
+      </div>
     </div>
   </template>
   
@@ -21,13 +23,45 @@
             {
               label: 'Gastos',
               backgroundColor: '#f87979',
-              data: [0, 0, 0, 0] // Inicialmente, todos os valores são zero
+              data: [0, 0, 0, 0] 
             }
           ]
         },
         chartOptions: {
           responsive: true,
-          maintainAspectRatio: false
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+              labels: {
+                font: {
+                  size: 14
+                }
+              }
+            },
+            title: {
+              display: true,
+              text: 'Distribuição de Gastos',
+              position: 'top',
+              font: {
+                size: 18,
+                weight: 'bold'
+              }
+            }
+          },
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'Valor (R$)',
+                font: {
+                  size: 14
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -61,3 +95,24 @@
     }
   }
   </script>
+  
+  <style scoped>
+  .app-charts-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .chart-title {
+    color: #333333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .chart-wrapper {
+    min-height: 300px;
+    position: relative;
+  }
+  </style>
