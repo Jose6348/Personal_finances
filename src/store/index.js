@@ -7,10 +7,8 @@ export default createStore({
     goals: []
   },
   mutations: {
-    // Suas mutações existentes aqui
   },
   actions: {
-    // Suas ações aqui
   },
   getters: {
     totalBalance: state => {
